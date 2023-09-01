@@ -23,7 +23,7 @@ public class LoginController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Service 생성
-				//MemberVO 생성
+		//MemberVO 생성
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		
