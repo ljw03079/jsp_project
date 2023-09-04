@@ -31,10 +31,12 @@ public class LoginController extends HttpServlet {
 		vo.setMemberPassword(request.getParameter("memberPassword"));
 		
 		//vo에 넘어온 값 담고
-		String id = request.getParameter("memberId");
-		String password = request.getParameter("memberPassword");
+//		String id = request.getParameter("memberId");
+//		String password = request.getParameter("memberPassword");
+		
 		//dao 호출
 		vo = dao.memberSelect(vo);
+		
 		//결과처리
 		if(vo != null) {
 			request.setAttribute("message", "로그인 성공!!");//결과를 처리해서 보여줄 페이지에 값을 전달하는 역할(변수명, 데이터)

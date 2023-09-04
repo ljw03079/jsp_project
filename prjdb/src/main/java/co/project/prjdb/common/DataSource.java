@@ -1,4 +1,4 @@
-package co.micol.project.common;
+package co.project.prjdb.common;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,9 +13,8 @@ public class DataSource {
 	
 	public static SqlSessionFactory getInstance() {
 		String resource = "mybatis-config.xml";
-		InputStream inputStream;
 		try {
-			inputStream = Resources.getResourceAsStream(resource);
+			InputStream inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory =
 					new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (IOException e) {
