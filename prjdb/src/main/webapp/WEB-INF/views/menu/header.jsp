@@ -6,13 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="css/menu.css" rel="stylesheet">
 </head>
 <body>
 	<nav id="topMenu">
 		<ul>
 			<li><a class="menuLink" href="home.do">Home</a></li>
 			<li><a class="menuLink" href="#">Book</a></li>
-			<li><a class="menuLink" href="#">Content</a></li>
+			<li><a class="menuLink" href="noticeselectlist.do">Content</a></li>
 			<c:if test="${empty id }">
 			<li><a class="menuLink" href="memberjoinform.do">Join</a></li>
 			<li><a class="menuLink" href="memberloginform.do">Login</a></li>
@@ -21,7 +22,7 @@
 			<li><a class="menuLink" href="memberlist.do">Member</a></li>
 			<li><a class="menuLink" href="#">MyPage</a></li>
 			<li><a class="menuLink" href="memberlogout.do">Logout</a></li>
-			<li>${name }님 접속중</li>
+			<li id="name">${name }님 접속중</li>
 			</c:if>
 		</ul>
 	</nav>

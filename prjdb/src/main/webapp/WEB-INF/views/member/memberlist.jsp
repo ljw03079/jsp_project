@@ -8,12 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div align="center">
 	<jsp:include page="../menu/header.jsp"/>
-	<div><h3>회원목록</h3></div>
-	<div>
-		<c:forEach items="${members }" var="m">
-			${m.memberId } : ${m.memberName } : ${m.memberEnterDate }<br>
-		</c:forEach>
+		<div><h3>회원목록</h3></div>
+		<div>
+			<c:forEach items="${members }" var="m">
+				${m.memberId } : ${m.memberName } : ${m.memberEnterDate }<br>
+			</c:forEach>
+		</div>
 	</div>
 </body>
 </html>

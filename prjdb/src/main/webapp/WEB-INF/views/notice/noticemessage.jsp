@@ -8,13 +8,8 @@
 </head>
 <body>
 <div align="center">
-	<jsp:include page="../menu/header.jsp" />
-	<div>
-		<h1>WellCome to My Home!!</h1>
-	</div>
-	<div>
-		<img alt="" src="img/sunflower.jpg">
-	</div>
+	<jsp:include page="../menu/header.jsp"/>
+	<div><h1>${message }</h1></div>
 </div>
 </body>
 </html>

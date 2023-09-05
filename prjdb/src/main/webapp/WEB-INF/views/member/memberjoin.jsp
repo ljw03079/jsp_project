@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 <jsp:include page="../menu/header.jsp"/>
 <div><h1>회원가입</h1></div>
 <div>
@@ -54,6 +55,7 @@
 			<input type="reset" value="취 소">
 		</div>
 	</form>
+</div>
 </div>
 <script type="text/javascript">
 	function formCheck(){

@@ -8,6 +8,7 @@
 </head>
 <body>
 <div align="center">
+<jsp:include page="../menu/header.jsp"/>
 	<div><h1>로 그 인</h1></div>
 	<div>
 		<form id="frm" action="memberlogin.do" method="post">

@@ -1,0 +1,7 @@
+*BootStrap: 잘만들어진 css library
+*tiles, sitemash, typeleaf layout /(conposition view) -> contents만 변경가능
+-> jstl, bootstrap 학습해오기
+
+mvc2 모델을 수료까지 사용하기때문에 잘 알아두기, git merge하는 방법 알아오기 github desktop 사용
+(ajax를 쓸 땐 response객체 사용, 호출한 페이지에서 결과를 처리
+ json데이터 타입은 java <-> javascript 데이터 교환할때 사용)

@@ -3,21 +3,21 @@
 <mapper namespace="co.project.prjdb.notice.map.NoticeMapper">
 	<select id="noticeSelectList" resultType="co.project.prjdb.notice.service.NoticeVO">
 		SELECT * FROM NOTICE
-		<if test="key == 'title'">WHERE NOTICE_TITLE LIKE '%'|| {#val} ||'%'</if>
-		<if test="key == 'subject'">WHERE NOTICE_SUBJECT LIKE '%'|| {#val} ||'%'</if>
-		<if test="key == 'writer'">WHERE NOTICE_WRITER LIKE '%'|| {#val} ||'%'</if>
+		<if test="key == 'title'">WHERE NOTICE_TITLE LIKE '%'|| #{val} ||'%'</if>
+		<if test="key == 'subject'">WHERE NOTICE_SUBJECT LIKE '%'|| #{val} ||'%'</if>
+		<if test="key == 'writer'">WHERE NOTICE_WRITER_NAME LIKE '%'|| #{val} ||'%'</if>
 	</select>
 	<select id="noticeSelect">
 		SELECT * FROM NOTICE WHERE NOTICE_ID = #{noticeId}
 	</select>
 	<insert id="noticeInsert">
-		<selectKey keyProperty="id" resultType="int" order="BEFORE">
-			SELECT NVL(MAX(NOTICE_ID),1) + 1 AS ID
+		<selectKey keyProperty="noticeId" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(NOTICE_ID),0) + 1 AS ID
 			FROM NOTICE
 		</selectKey>
 		INSERT INTO NOTICE
-		VALUES(#{id}, #{noticeWriter}, #{noticeTitle}, #{noticeSubject}, #{noticeDate},
-			   0, #{noticeAttech},#{noticeImage},#{noticeWriterName})
+		VALUES(#{noticeId}, #{noticeWriter}, #{noticeTitle}, #{noticeSubject}, #{noticeDate},
+			   0, #{noticeAttech},#{noticeImage},#{noticeWriterName},#{noticeThumb})
 	</insert>
 	<update id="noticeUpdate"></update>
 	<delete id="noticeDelete"></delete>

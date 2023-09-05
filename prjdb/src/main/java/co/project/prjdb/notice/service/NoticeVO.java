@@ -16,5 +16,6 @@ public class NoticeVO {
 	private int noticeHit;
 	private String noticeAttech;
 	private String noticeImage;
-	private String noticeWriterName; 
+	private String noticeWriterName;
+	private String noticeThumb;
 }
