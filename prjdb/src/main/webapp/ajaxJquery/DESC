@@ -42,3 +42,4 @@ insert into tbl_reply (reply_id, notice_id, replyer, reply)
 values (seq_reply.nextval, 2, 'user2', '2번게시글에대한 댓글4');
 
 select * from tbl_reply;
+commit;
