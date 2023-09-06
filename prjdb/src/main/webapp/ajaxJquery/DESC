@@ -1,0 +1,44 @@
+https://poiemaweb.com/
+https://developer.mozilla.org/ko/
+https://www.mockaroo.com/
+
+let obj = document.getElementById('id'); 한건만 반환
+document.querySelector('#id'); 
+
+document.getElementByClassName('class'); 반환: HTMLCollection
+document.getElementByTagName('li');
+document.querySelectorAll('.class'); 반환: NodeList
+
+element : <li id='first'>Apple</li> /element는 이거 전체를 말함
+node : <li>, '#first'(attribute노드), 'Apple'(text노드 -> InnerHtml로 정의할 수 있음) /세분화
+
+<sql>
+create table tbl_reply(
+    reply_id number, --댓글번호
+    notice_id number not null, --게시글번호
+    replyer varchar2(30) not null, --댓글작성자
+    reply varchar2(300) not null, --댓글내용
+    reply_date date default sysdate, --댓글작성일자
+    update_date date default sysdate --댓글수정일자
+);
+create sequence seq_reply;
+--게시글 1번에 대한 댓글
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 1, 'user1', '1번게시글에대한 댓글1');
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 1, 'user1', '1번게시글에대한 댓글2');
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 1, 'user1', '1번게시글에대한 댓글3');
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 1, 'user1', '1번게시글에대한 댓글4');
+
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 2, 'user1', '2번게시글에대한 댓글1');
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 2, 'user2', '2번게시글에대한 댓글2');
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 2, 'user1', '2번게시글에대한 댓글3');
+insert into tbl_reply (reply_id, notice_id, replyer, reply)
+values (seq_reply.nextval, 2, 'user2', '2번게시글에대한 댓글4');
+
+select * from tbl_reply;

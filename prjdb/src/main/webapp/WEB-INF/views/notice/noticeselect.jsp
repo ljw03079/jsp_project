@@ -22,7 +22,7 @@
 					</tr>
 					<tr>
 						<th>이미지</th>
-						<td colspan="5"><img src="attech/notice/${n.noticeImage }"></td>
+						<td colspan="5"><img height="50px" src="attech/notice/${n.noticeImage }"></td>
 					</tr>
 					<tr>
 						<th>제 목</th>

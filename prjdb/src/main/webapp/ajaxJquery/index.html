@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <ul>
+	 <li class="first">Apple</li>
+	 <li class="first">Banana</li>
+ </ul>
+ <div id="clone"></div>
+ <ul id="myHobby"></ul>
+ <ul class="fruits"></ul>
+ 
+ <table id="addMember" border="1">
+	 <tbody>
+		 <tr>
+			 <th>이름</th>
+			 <td><input name="name" value="홍길동"></td> 
+			 <!--input 태그는 value, 나머지 태그는 innerText로 안의 값을 바꿀 수 있음
+			 document.querySelector('input[name=name]').value = "김길동";
+			 document.querySelector('th').innerText = "Name";-->
+		 </tr>
+		 <tr>
+			 <th>나이</th>
+			 <td><input name="age" value="20"></td>
+		 </tr>
+		 <tr>
+			 <th>연락처</th>
+			 <td><input name="phone" value="010-1111"></td>
+		 </tr>
+		 <tr>
+			 <td colspan="2">
+				 <button class="add">등록</button>
+				 <button class="edit">수정</button>
+			 </td>
+		 </tr>
+	 </tbody>
+ </table>
+ <hr>
+ <table border="1" id="memberList">
+	<thead>
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+			<th>연락처</th>
+			<th>삭제</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td id="first" style="color: green;">원래있던 홍길동</td>
+			<td>20</td>
+			<td>010-1111</td>
+			<td><button>삭제</button></td>
+		</tr>
+	</tbody>
+ </table>
+ 
+ <script src="dom.js"></script>
+ <script src="obj.js"></script>
+ <script src="ary.js"></script>
+ <script src="objAry.js"></script>
+</body>
+</html>

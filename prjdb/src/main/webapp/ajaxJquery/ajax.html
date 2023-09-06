@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax.html</title>
+<script>
+	let json = `[{"name":"홍길동","age":20},{"name":"김골동","age":22}]`;
+	//json 포맷의 문자 => 자바스크립트의 객체 JSON.parse(), 자바스크립트의 객체 => json 포맷의 문자 JSON.stringify() /쉽게 변환가능
+	let obj = JSON.parse(json);
+	console.log(obj);
+	
+	let str = JSON.stringify(obj); //자바스크립트의 문자열로 바꿈 /주고받는 것은 text형태로
+	console.log(str);
+</script>
+</head>
+<body>
+	<h3>Asynchronous Javascript And Xml</h3>
+	<ul id="list">
+	</ul>
+	<!--<school>
+		<class>
+			<teacher>홍길동</teacher>
+			<name>3-1</name>
+		</class>
+		<class>
+			<teacher>김길동</teacher>
+			<name>3-2</name>
+		</class>
+	</school>
+		태그로 데이터를 감싸고 편하게 값을 가져오려고 함: xml
+		요즘에는 json데이터로 서버에서 데이터를 주고받음
+		아래 방식이 json
+	{
+		"school": [
+		{"class": "홍길동", "name":"3-1"}
+		]
+	}-->
+	<script>
+		console.log(document.getElementsByTagName('h3')[0].innerText);
+		//Ajax 처리 객체: XMLHttpRequest
+		let ajx = new XMLHttpRequest(); //데이터를 주고받는 객체, ajax 서버에서 데이터를 가져오겠습니다.
+		//ajx.open('get','./dataset.xml'); //(요청방식, 요청페이지) eXtensible Markup Language(XML)데이터를 가져와서 태그를 만들어줌 -> ajax 기술
+		ajx.open('get','../AjaxReplyList.do?nid=1');
+		ajx.send(); //ajax -> 비동기
+		//ajx.onload = genXML; //load event가 발생하면 이함수를 실행 -> callback 함수
+		//ajx.onload = getJson;
+		ajx.onload = getReply;
+		function getReply(){
+			console.log(ajx.responseText);
+		}
+		
+		function getJson(){
+			//console.log(ajx.responseText);
+			let data = JSON.parse(ajx.responseText);
+			//console.log(data);
+			for(let i=0; i<data.length; i++){
+				let li = document.createElement('li');
+				li.innerText = data[i].first_name + ", " + data[i].last_name
+				document.getElementById('list').appendChild(li);
+			}
+		}
+			
+		/*function genXML(){
+			console.log(ajx.responseXML);//responseText,responseXML: 담아놓는 곳
+			let xml = ajx.responseXML;
+			let ids = xml.getElementsByTagName('id');
+			//console.log(ids[0].innerHTML);
+			let records = xml.getElementsByTagName('record');
+			for(let i=0; i<ids.length; i++){
+				let li = document.createElement('li');
+				li.innerText = records[i].children[1].innerHTML + ", " + records[i].children[2].innerHTML
+				document.getElementById('list').appendChild(li);
+			}
+		}*/
+		//document.querySelector('body').innerHTML = ajx.responseText;
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function syncFnc(){
+			let num = 10;
+			console.log(num);
+			num*=2;
+			console.log(num);
+		}
+		syncFnc(); //동기방식 순차적 진행
+		function asyncFnc(){
+			console.log('async');
+			let friends = [];
+			setTimeout(function(){ //매개값 2개, 매개값에 준 시간만큼 있다가 실행, 3초있다가 실행
+				friends.push({name:"홍길동",phone:"1111"});
+				console.log(friends);
+			}, 3000);
+			setTimeout(function(){ //매개값 2개, 매개값에 준 시간만큼 있다가 실행, 2초있다가 실행
+				friends.push({name:"김길동",phone:"2222"});
+				console.log(friends);
+			}, 2000);
+			setTimeout(function(){ //매개값 2개, 매개값에 준 시간만큼 있다가 실행, 1초있다가 실행 -> 2번째 실행
+				friends.push({name:"박길동",phone:"3333"});
+				console.log(friends);
+			}, 1000);
+			console.log("end: "+friends);//제일 먼저 실행
+		}
+		asyncFnc();//비동기방식 비순차적 진행(코드 순서와 상관x, 속도높여줌)
+	</script>
+</body>
+</html>
