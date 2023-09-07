@@ -51,7 +51,7 @@
             		</c:when>
             		<c:otherwise>
 	            		<c:forEach items="${notices }" var="n">
-			                <tr onmouseover="this.style.background='#C8FE2E'"
+			                <tr onmouseover="this.style.background='#CCCCCC'"
 			                	onmouseout="this.style.background='#FFFFFF'"
 			                	onclick="noticeSelect(${n.noticeId })">
 			                    <td align="center">${n.noticeId }</td>

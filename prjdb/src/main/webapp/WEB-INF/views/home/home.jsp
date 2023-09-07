@@ -10,7 +10,7 @@
 <div align="center">
 	<jsp:include page="../menu/header.jsp" />
 	<div>
-		<h1>WellCome to My Home!!</h1>
+		<h1>WelCome to My Home!!</h1>
 	</div>
 	<div>
 		<img alt="" src="img/sunflower.jpg">

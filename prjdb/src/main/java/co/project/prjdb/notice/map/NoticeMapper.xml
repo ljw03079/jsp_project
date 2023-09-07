@@ -6,6 +6,7 @@
 		<if test="key == 'title'">WHERE NOTICE_TITLE LIKE '%'|| #{val} ||'%'</if>
 		<if test="key == 'subject'">WHERE NOTICE_SUBJECT LIKE '%'|| #{val} ||'%'</if>
 		<if test="key == 'writer'">WHERE NOTICE_WRITER_NAME LIKE '%'|| #{val} ||'%'</if>
+		ORDER BY 1
 	</select>
 	<select id="noticeSelect">
 		SELECT * FROM NOTICE WHERE NOTICE_ID = #{noticeId}

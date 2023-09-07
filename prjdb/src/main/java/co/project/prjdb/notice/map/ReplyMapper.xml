@@ -5,6 +5,7 @@
 	<select id="list" resultType="co.project.prjdb.notice.service.ReplyVO">
 		SELECT * FROM TBL_REPLY
 		WHERE NOTICE_ID = #{noticeId}
+		ORDER BY 1
 	</select>
 	
 	<select id="select">
@@ -13,8 +14,8 @@
 	</select>
 	
 	<insert id="insert">
-		<selectKey keyProperty="replyId" resultType="int" order="BEFORE">
-			SELECT SEQ_REPLY.NEXTVAL FROM DUAL
+		<selectKey keyProperty="replyId,replyDate" resultType="co.project.prjdb.notice.service.ReplyVO" order="BEFORE">
+			SELECT SEQ_REPLY.NEXTVAL AS replyId, SYSDATE AS replyDate FROM DUAL
 		</selectKey>
 		INSERT INTO TBL_REPLY (REPLY_ID, NOTICE_ID, REPLYER, REPLY)
 		VALUES(#{replyId}, #{noticeId}, #{replyer}, #{reply})
