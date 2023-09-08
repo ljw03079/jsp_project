@@ -43,3 +43,31 @@ values (seq_reply.nextval, 2, 'user2', '2번게시글에대한 댓글4');
 
 select * from tbl_reply;
 commit;
+
+
+----------------------------------------------------------------
+<달력>
+create table events (
+ title varchar2(20) not null,
+ start_date varchar2(20) not null, --2023-01-01T13:45:34
+ end_date varchar2(20)
+);
+
+insert into events values('sample event', '2023-09-03', '');
+insert into events values('meeting event', '2023-09-13', '2023-09-16');
+insert into events values('여행 event', '2023-09-23', '2023-09-26');
+insert into events values('스프링 스터디', '2023-09-03T16:00:00', '2023-09-03T18:00:00');
+
+select * from events;
+
+commit;
+
+*****홈페이지
+https://www.data.go.kr/iim/api/selectAPIAcountView.do#/API%20%EB%AA%A9%EB%A1%9D/getcenters
+https://apis.map.kakao.com/web/sample/markerWithInfoWindow/
+https://www.w3schools.com/css/css3_pagination.asp#
+https://datatables.net/examples/ajax/orthogonal-data.html
+https://developers-dot-devsite-v2-prod.appspot.com/chart/interactive/docs/gallery/piechart?hl=ko
+https://fullcalendar.io/
+https://github.com/fullcalendar/fullcalendar/releases
+*****
