@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.project.prjdb.common.DataSource;
 import co.project.prjdb.notice.map.ReplyMapper;
+import co.project.prjdb.notice.service.EventVO;
 import co.project.prjdb.notice.service.ReplyService;
 import co.project.prjdb.notice.service.ReplyVO;
 
@@ -36,5 +37,16 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public List<ReplyVO> listReply(int noticeId) {
 		return map.list(noticeId);
+	}
+
+	
+	@Override
+	public List<EventVO> getEventList() {
+		return map.getEventList();
+	}
+
+	@Override
+	public boolean eventInsert(EventVO vo) {
+		return map.eventInsert(vo);
 	}
 }

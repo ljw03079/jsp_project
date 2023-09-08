@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>zzz.html</title>
+<style>
+  .outer{
+    width: 420px;
+    height: 350px;
+    background-color: yellow;
+  }
+  .outer span{
+    display: inline-block;
+    width: 90px;
+    height: 25px;
+    padding: 2px;
+    margin: 2px;
+    border: 1px solid black;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+	<input type="text" class="userVal">
+	<button id="addBtn">입력</button>
+  <div class="outer">
+
+  </div>
+  남은 시간: <span class="timer">60</span>초
+  <script>
+    let str = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut minima in corporis facere. Cum labore similique, odit ratione nemo unde perferendis magni hic beatae accusantium dicta, sit doloribus temporibus!`
+    let wordAry = str.split(' ');
+    console.log(wordAry);
+    
+    wordAry.forEach(word => {
+    let span = document.createElement('span');
+    span.setAttribute('id',word);
+    span.innerText = word;
+    document.querySelector('.outer').appendChild(span);
+    })
+    
+    let timeLeft = 60;
+    setInterval(function(){
+		document.querySelector('.timer').innerHTML = timeLeft--;
+		
+		if(timeLeft != 0 && document.getElementsByTagName('span') == null){
+			alert("성공");
+		}else{
+			alert("실패");
+		}
+	},1000);
+	
+	
+	
+	document.querySelector('#addBtn').addEventListener('click', function(e) {
+		let obj = document.querySelector('.userVal').value;
+		for(let i=0; i<wordAry.length; i++){
+			if(wordAry[i] == obj){
+				document.querySelector(`#${obj}`).remove();
+				document.querySelector('.userVal').value = '';
+        		document.querySelector('.userVal').focus();
+			}
+		}
+	})
+	
+	document.querySelector('.userVal').addEventListener('keydown', function(e){
+		if(e.keyCode == 13){
+    		document.getElementById("addBtn").focus();
+    	}
+	});
+	
+  </script>
+</body>
+</html>

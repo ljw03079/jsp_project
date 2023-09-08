@@ -31,4 +31,13 @@
 		WHERE REPLY_ID = #{replyId}
 	</delete>
 	
+	
+	<select id="getEventList" resultType="co.project.prjdb.notice.service.EventVO">
+		SELECT * FROM EVENTS
+	</select>
+	
+	<insert id="eventInsert" parameterType="co.project.prjdb.notice.service.EventVO">
+		INSERT INTO EVENTS (TITLE, START_DATE, END_DATE)
+		VALUES (#{title}, #{startDate}, #{endDate})
+	</insert>
 </mapper>

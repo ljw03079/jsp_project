@@ -1,7 +1,9 @@
 package co.project.prjdb.notice.map;
 
 import java.util.List;
+import java.util.Map;
 
+import co.project.prjdb.notice.service.EventVO;
 import co.project.prjdb.notice.service.ReplyVO;
 
 public interface ReplyMapper {
@@ -11,4 +13,7 @@ public interface ReplyMapper {
 	public int delete(int replyId);
 	public ReplyVO select(int replyId);
 	public List<ReplyVO> list(int noticeId);
+	
+	public List<EventVO> getEventList();
+	public boolean eventInsert(EventVO vo);
 }
