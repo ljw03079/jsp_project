@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jqueryCss.html</title>
+<style>
+	#show>ul>li:nth-child(1){
+		color: red;
+	}
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+	<div id="show">
+		<ul>
+			<li>Apple</li>
+			<li>Banana</li>
+			<li>Cherry<span>추천</span></li>
+			<li></li>
+		</ul>
+	</div>
+	<input type="checkbox" name="hobby" value="reading" checked>
+	<input type="checkbox" name="hobby" value="eating">
+	
+	
+	<script>
+		$('#show>ul>li:nth-child(1)').css('background','yellow');
+		$('#show>ul>li:nth-child(2)').css('background','aqua');
+		$('li').on('click',function(e){
+			console.log(this);
+			$(this).css('color','blue'); //제이쿼리 객체여야 함수사용 가능
+		})
+		
+		// 선택자 eq, lt, gt 순번은 index의 값이 0부터
+		$('li:eq(0)').css('border','2px solid green');//li요소 중 index값이 0 -> nth-child(1)
+		//$('li:gt(1)').css('fontSize','28px');//index 2번
+		$('li:lt(1)').css('fontSize','28px');
+		$('li:contains(Banana)').css('fontSize','30px'); //contains: text요소
+		$('li:has(span)').css('background','green'); //has: 하위요소
+		$('li:not(:eq(1))').css('border','3px dotted blue');
+		$('li:empty').text('No');
+		
+		console.log($('input:checked'));
+		
+		$('ul').append($('<li />').text('Melon')); // <li>Melon</li> 젤 마지막에 추가
+		$('ul').prepend($('<li />').text('Melon')); // <li>Melon</li> 젤 첫번째에 추가
+		$('<li />').html('<b>Peach</b>').appendTo($('ul')); // ul의 제일 마지막에 추가
+		//text: 전부 텍스트로 인식 html: 태그 인식가능
+		
+		//$('li:last').after($('<li>Grape</li>')); //li의 마지막에 추가
+		$('li:last').before($('<li>Grape</li>')); 
+		
+		$('li:contains(Banana)').after($('<li>Grape</li>')); 
+		$('<li>Grape2</li>').insertAfter($('li:first')); //첫번째li 다음에 추가
+		
+		$('div#show').wrap('<div class="row"></div>'); //wrap: 감싸는 기능
+		
+		let clone = $('li:first').clone();
+		console.log(clone);
+		$('ul').append(clone);
+		
+	</script>
+</body>
+</html>

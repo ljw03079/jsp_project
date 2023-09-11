@@ -28,12 +28,11 @@ public class NoticeSelect extends HttpServlet {
 		vo = dao.noticeSelect(vo);
 		dao.noticeHitUpdate(vo.getNoticeId());
 		request.setAttribute("n", vo);
-		String page = "notice/noticeselect";
+		String page = "notice/noticeselect2";
 		ViewResolve.forward(request, response, page);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
