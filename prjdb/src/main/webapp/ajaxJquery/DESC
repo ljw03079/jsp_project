@@ -99,5 +99,3 @@ create table item (
  item_img varchar2(50) not null
  );
  
- =================================================================
- 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
