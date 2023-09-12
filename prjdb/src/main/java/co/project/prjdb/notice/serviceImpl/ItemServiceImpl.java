@@ -12,7 +12,7 @@ import co.project.prjdb.notice.service.ItemVO;
 public class ItemServiceImpl implements ItemService{
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private ItemMapper map = sqlSession.getMapper(ItemMapper.class);
-	
+
 	@Override
 	public List<ItemVO> itemList() {
 		return map.itemList();
@@ -21,6 +21,11 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public ItemVO itemSelect(String itemId) {
 		return map.itemSelect(itemId);
+	}
+
+	@Override
+	public List<ItemVO> itemListFour() {
+		return map.itemListFour();
 	}
 
 }

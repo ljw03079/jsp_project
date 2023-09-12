@@ -10,4 +10,5 @@ public class ItemVO {
 	private int itemPrice;
 	private int itemSalePrice;
 	private int itemStar;
+	private String itemImg;
 }

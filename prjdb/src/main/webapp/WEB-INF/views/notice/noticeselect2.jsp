@@ -74,25 +74,26 @@
 		</table>
 	</div>
 	<h3>댓글목록</h3>
-	<table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>댓글번호</th>
-                <th>댓글내용</th>
-                <th>댓글작성자</th>
-                <th>등록날짜</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>댓글번호</th>
-                <th>댓글내용</th>
-                <th>댓글작성자</th>
-                <th>등록날짜</th>
-            </tr>
-        </tfoot>
-    </table>
-    <script src="js/reply.js"></script>
+	<table id="example" class="display" style="width: 100%">
+		<thead>
+			<tr>
+				<th>댓글번호</th>
+				<th>댓글내용</th>
+				<th>댓글작성자</th>
+				<th>등록날짜</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>댓글번호</th>
+				<th>댓글내용</th>
+				<th>댓글작성자</th>
+				<th>등록날짜</th>
+			</tr>
+		</tfoot>
+	</table>
+	<p><button id="button">Delete selected row</button></p>
+	<script src="js/reply.js"></script>
 	<script>
 		const rep = new Reply();
 		let noticeId = "${n.noticeId}";
@@ -133,7 +134,23 @@
 		//addNewRow();
 		
 		//삭제 기능 추가해보기
-		
+		//const table = new DataTable('#example');
+ 
+		table.on('click', 'tbody tr', (e) => {
+	    let classList = e.currentTarget.classList;
+		 
+		    if (classList.contains('selected')) {
+		        classList.remove('selected');
+		    }
+		    else {
+		        table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+		        classList.add('selected');
+		    }
+		});
+		 
+		document.querySelector('#button').addEventListener('click', function () {
+		    table.row('.selected').remove().draw(false);
+		});
 	</script>
 </body>
 </html>
