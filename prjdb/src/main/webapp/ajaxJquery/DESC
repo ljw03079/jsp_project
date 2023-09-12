@@ -76,3 +76,13 @@ https://github.com/fullcalendar/fullcalendar/releases
 http://www.tcpschool.com/jquery/intro
 https://jquery.com/
 https://datatables.net/examples/api/select_single_row.html
+
+------------------------------------------------------------------
+<2인 실습>
+첫페이지(productList.do), 상세페이지(productItem.do) -> jsp, DB에서 데이터 가져와야함
+상세페이지의 related products -> ajax, 평점순으로 4개
+별: bi-star-half
+
+
+id pk, name, script, price -> not null
+sale y/n, sale price, 평점 -> null 가능
