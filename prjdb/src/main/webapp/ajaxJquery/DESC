@@ -86,3 +86,15 @@ https://datatables.net/examples/api/select_single_row.html
 
 id pk, name, script, price -> not null
 sale y/n, sale price, 평점 -> null 가능
+
+
+<sql>
+create table item (
+ item_id varchar2(30) primary key,
+ item_name varchar2(30) not null,
+ item_script varchar2(200) not null,
+ item_price number not null,
+ item_sale_price number,
+ item_star number,
+ item_img varchar2(50) not null
+ );
