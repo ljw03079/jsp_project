@@ -77,3 +77,35 @@
   파일업로드를 위해 cos, jackson 데이터 처리 jackson databind, 날짜 데이터 처리 jackson datatype
 	Html : String 문자열, file : binary 이진파일, 텍스트가 아닌 파일객체를 쓰려면 enctype을 multipart/form-data로 반드시 변경
 	파일업로드 type file, id와 name은 원본 파일 이름
+	
+	
+	
+	
+[중간 프로젝트]
+insert into member
+values ('gyungmin','12345678', 'gyungmin@yedam.com', '이경민', '010-1234-5678', 'admin',null);
+insert into member
+values ('jeryun','12345678', 'jeryun@yedam.com', '정재륜', '010-1234-5678', 'user', null);
+insert into member
+values ('jiwon','12345678', 'jiwon@yedam.com', '이지원', '010-1234-5678', 'host',null);
+insert into member
+values ('yujin','12345678', 'yujin@yedam.com', '김유진', '010-1234-5678', 'host',null);
+insert into member
+values ('sumin','12345678', 'sumin@yedam.com', '박수민', '010-1212-1212', 'user',null);
+insert into member
+values ('ejin','12345678', 'ejin@yedam.com', '정이진', '010-3434-5678', 'user',null);
+
+select * from member;
+
+commit;
+
+select * from space;
+
+insert into space
+values ('vivi studio', 60000, 'Daegu', '대구 중구 대구광역시 중구 중앙대로 403 5층', 'StaySpace_commercial_4(3).jpg', 'vivi 스튜디오 입니다. 쇼핑몰 상품 촬영으로 적절한 저희 스튜디오를 애용해주세요', 'jiwon', 5, 'StaySpace_commercial_4(3).jpg', 'StaySpace_commercial_4(3).jpg', 0, 37.51924224775983, 127.02486018277153, 'Commercial', 0);
+
+delete from space
+where space_name = 'vivi studio2';
+
+insert into space
+values ('비비카페', 50000, 'Seoul', '서울특별시 강남구 도산대로17길 10 지상 2층', 'StaySpace_commercial_4(3).jpg', '안녕하세요, 저희 비비카페는 신사동 가로수길에 위치해 있으며 루프탑 이용가능한 모던한 분위기의 신상카페입니다.', 'vivi', 4, 'StaySpace_commercial_4(3).jpg', 'StaySpace_commercial_4(3).jpg', 0, 37.51924224775983, 127.02486018277153, 'Commercial', 1);
