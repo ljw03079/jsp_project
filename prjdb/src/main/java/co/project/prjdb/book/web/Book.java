@@ -1,4 +1,4 @@
-package co.project.prjdb.member.web;
+package co.project.prjdb.book.web;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,30 +6,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.project.prjdb.common.ViewResolve;
 
-@WebServlet("/memberlogout.do")
-public class MemberLogout extends HttpServlet {
+@WebServlet("/Book.do")
+public class Book extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MemberLogout() {
+    public Book() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		
-		String name = (String) session.getAttribute("name");
-		session.invalidate(); //세션정보를 완전히 삭제한다.
-		
-		request.setAttribute("message", name+"님 로그아웃이 처리되었습니다.");
-		String page = "member/membermessage";
+		String page = "book/book";
 		ViewResolve.forward(request, response, page);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+
 }

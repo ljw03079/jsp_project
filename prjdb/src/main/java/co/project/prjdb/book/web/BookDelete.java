@@ -1,35 +1,40 @@
-package co.project.prjdb.member.web;
+package co.project.prjdb.book.web;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import co.project.prjdb.common.ViewResolve;
+import co.project.prjdb.book.service.BookService;
+import co.project.prjdb.book.service.BookVO;
+import co.project.prjdb.book.serviceImpl.BookServiceImpl;
 
-@WebServlet("/memberlogout.do")
-public class MemberLogout extends HttpServlet {
+@WebServlet("/BookDelete.do")
+public class BookDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MemberLogout() {
+    public BookDelete() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		String bookCode = request.getParameter("bcode");
+		BookService dao = new BookServiceImpl();
+		BookVO vo = new BookVO();
+		vo.setBookCode(bookCode);
 		
-		String name = (String) session.getAttribute("name");
-		session.invalidate(); //세션정보를 완전히 삭제한다.
-		
-		request.setAttribute("message", name+"님 로그아웃이 처리되었습니다.");
-		String page = "member/membermessage";
-		ViewResolve.forward(request, response, page);
+		if(dao.bookDelete(vo) != 0) {
+			response.getWriter().print("{\"retCode\": \"Success\"}");
+		}else {
+			response.getWriter().print("{\"retCode\": \"Fail\"}");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+
 }
