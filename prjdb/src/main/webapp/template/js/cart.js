@@ -30,7 +30,7 @@ let basket = {
 		let ckbox = []
 		ckbox = document.querySelectorAll('input[type="checkbox"]:checked');
 		ckbox.forEach((item)=>{
-			item.parentElement.parentElement.parentElement.remove();
+			item.closest('div.row.data').remove();
 		})
 		basket.reCalc();
 	},
@@ -80,7 +80,6 @@ let basket = {
 		let val = parseInt(e.parentElement.childNodes[1].getAttribute('value'));
 		//up
 		if(e.childNodes[1].className.search("up") != -1){
-			//console.log("up");
 			e.parentElement.childNodes[1].setAttribute('value',val+1);
 			let price = Number(e.parentElement.parentElement.parentElement.childNodes[1].childNodes[1].getAttribute('value'));
 			e.parentElement.parentElement.parentElement.childNodes[5].setAttribute('value',price*(val+1));
@@ -99,31 +98,37 @@ let basket = {
 	// 삭제버튼 클릭시.
 		//콘솔
 		//console.log(e.parentElement.parentElement.parentElement);
+		//console.log(e.closest('div.row.data'));
 		
 		//삭제
-		e.parentElement.parentElement.parentElement.remove();
+		e.closest('div.row.data').remove();
 		basket.reCalc();
 	},
 	cartList: function () {
 	// 상품목록 출력...아래에 있는 상품정보를 활용해서 수량만큼 출력이 되도록.
-		cartItems.forEach((item, idx) => {
+		cartItems.forEach((item) => {
 			let template = document.querySelector('div.row.data').cloneNode(true);
 			
 			//콘솔
 			//console.log(template.childNodes[3].childNodes[1].childNodes[2]);
 			
 			//이미지
-			template.childNodes[1].childNodes[3].firstChild.setAttribute('src','./img/'+item.image);
+			console.log(template.querySelector('input[name="p_price"]').nextSibling);
+			template.querySelector('img').setAttribute('src','./img/'+item.image);
+
 			//제품명
-			template.childNodes[1].childNodes[5].childNodes[1].innerText = item.productNm;
+			template.querySelector('.pname').querySelector('span').innerText = item.productNm;
+
 			//가격(id,value,text)
-			template.childNodes[3].childNodes[1].childNodes[1].setAttribute('id','p_price'+item.no);
-			template.childNodes[3].childNodes[1].childNodes[1].setAttribute('value',item.price);
-			template.childNodes[3].childNodes[1].childNodes[2].textContent = (item.price).formatNumber()+"원";
+			template.querySelector('input[name="p_price"]').setAttribute('id','p_price'+item.no);
+			template.querySelector('input[name="p_price"]').setAttribute('value',item.price);
+			template.querySelector('input[name="p_price"]').nextSibling.textContent = (item.price).formatNumber()+"원";
+
 			//수량(id,name,value,button)
-			template.childNodes[3].childNodes[3].childNodes[1].childNodes[1].setAttribute('id','p_num'+item.no);
-			template.childNodes[3].childNodes[3].childNodes[1].childNodes[1].setAttribute('name','p_num'+item.no);
-			template.childNodes[3].childNodes[3].childNodes[1].childNodes[1].setAttribute('value',item.qty);
+			template.querySelector('.p_num').setAttribute('id','p_num'+item.no);
+			template.querySelector('.p_num').setAttribute('name','p_num'+item.no);
+			template.querySelector('.p_num').setAttribute('value',item.qty);
+			
 			//합계
 			template.childNodes[3].childNodes[5].innerText = (item.price*item.qty).formatNumber()+"원";
 			template.childNodes[3].childNodes[5].setAttribute('value',item.price*item.qty);
