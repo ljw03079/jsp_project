@@ -12,7 +12,7 @@
 	<nav id="topMenu">
 		<ul>
 			<li><a class="menuLink" href="home.do">Home</a></li>
-			<li><a class="menuLink" href="Book.do">Book</a></li>
+			<li><a class="menuLink" href="BookVue.do">Book</a></li>
 			<li><a class="menuLink" href="noticeselectlist.do">Content</a></li>
 			<c:if test="${empty id }">
 			<li><a class="menuLink" href="memberjoinform.do">Join</a></li>

@@ -1,0 +1,79 @@
+@charset "UTF-8";
+#bookSubmit th {
+	text-align: center;
+	background-color: #ccc;
+	width: 200px;
+	display: inline-block;
+}
+
+#bookSubmit td input {
+	width: 500px;
+	height: 20px;
+}
+
+#bookSubmit {
+	padding: 0 10px 10px 10px;
+	float: left;
+}
+
+#bookButton {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 220px;
+	float: left;
+	height: 120px;
+	padding: 10px;
+	margin: 10px 0;
+	position: relative;
+}
+
+#insert {
+	display: block;
+	margin-bottom: 10px;
+	position: absolute;
+	top: 30px;
+	left: 100px;
+	width: 75px;
+}
+
+#checkedDelete {
+	display: block;
+	position: absolute;
+	top: 70px;
+	left: 100px;
+	width: 75px;
+}
+
+#bookTable {
+	width: 1000px;
+	border-collapse: separate;
+	border-spacing: 0 15px;
+	border: 1px solid black;
+}
+
+#bookTable>thead>tr>th {
+	height: 40px;
+	background-color: #747474;
+	color: white;
+}
+
+#inputBook {
+	width: 1000px;
+	padding-top: 0;
+}
+
+#bookTable td {
+	text-align: center;
+	margin: 10px 0;
+	padding: 10px 0;
+}
+
+#bookTable tr {
+	border: 1px dotted black;
+}
+
+#bookTable td:nth-child(3),
+#bookTable td:last-child {
+	text-align: left;
+}
