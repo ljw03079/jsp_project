@@ -6,7 +6,6 @@ export default {
 	template: `
 	<div>
 		<div id="inputBook">
-			<hr style="padding: 0">
 		    <table id="bookSubmit">
 		        <tr>
 		            <th>도서코드</th>
@@ -32,8 +31,6 @@ export default {
 		    <div id="bookButton">
 		    	<button v-on:click="bookAddList" type="button" id="insert" style="width: 100px; height: 50px;">저장</button>
 		    </div>
-		    <br>
-		    <button v-on:click="bookList" style="width: 100px; height: 50px;">목록보기</button>
 		</div>
 	</div>
 	`,
@@ -47,11 +44,26 @@ export default {
 		}
 	},
 	methods: {
-		bookList(){
-			this.$emit('book-list')
-		},
 		bookAddList(){
-			this.$emit('book-add-list',this.code,this.name,this.writer,this.publisher,this.price)
+			fetch('BookVueAdd.do', {
+				method: "POST",
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				body: 'bc=' + this.code + '&bn=' + this.name + '&bw=' + this.writer + '&bpu=' + this.publisher + '&bpr=' + this.price
+			})
+			.then(resolve => resolve.json())
+			.then(result => {
+				if (result.retCode == "Success") {
+					alert("추가 성공");
+					location.reload();
+				} else if (data.retCode == "Fail") {
+					alert("처리 중 에러");
+				} else {
+					alert("알 수 없는 반환코드");
+				}
+			})
+			.catch(err => console.log(err));
 		}
 	}
 }

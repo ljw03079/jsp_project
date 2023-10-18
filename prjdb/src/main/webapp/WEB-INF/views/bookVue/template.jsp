@@ -7,6 +7,7 @@
 <title>template.jsp</title>
 <link rel="stylesheet" href="bookVue/assets/style.css">
 <script src="https://unpkg.com/vue@2"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
 </head>
 <body>
 	<div align="center">
